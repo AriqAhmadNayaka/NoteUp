@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NoteUp 🎙️✨
 
-## Getting Started
+> **Smart Voice Recorder & AI Notes with Notion-like Elegance**  
+> An open-source, local-first alternative to PLAUD Note Pro. Built with Next.js, Tailwind CSS, and powered by OpenAI-compatible AI Gateways (such as [9router](https://github.com)).
 
-First, run the development server:
+---
+
+## 🌟 Key Features
+
+- **🎙️ Real-time Audio Recording:** MediaRecorder with a clean, monochrome live waveform visualizer.
+- **📌 Moment Markers & Live Memos:** Pin important timestamps and type instant notes while recording is in progress.
+- **📁 Multimodal Upload:** Drag-and-drop external audio recordings (`.mp3`, `.m4a`, `.wav`, `.aac`) or paste raw lecture/meeting text notes.
+- **🗣️ Speaker Labels & Diarization:** Identifies who is speaking and separates conversations per speaker.
+- **🎧 Interactive Karaoke Audio-Sync:** Click any sentence in the transcript to jump audio playback to that exact second.
+- **📋 Multi-Dimensional Summaries:** Categorized by meeting, lecture, brainstorming, or personal notes.
+- **✅ Action Items & To-Dos:** Automatically extract tasks and assignees with interactive Notion-style square checkboxes.
+- **🗺️ Interactive Mind Map:** Dynamic topic tree visualizer with direct **Copy to Mermaid** and **Markdown** buttons for seamless Obsidian integration.
+- **💬 Ask NoteUp AI Assistant:** Context-aware Q&A chat with timestamp citations that jump straight into audio playback.
+- **📱 PWA & Mobile-First:** Installable on Android & iOS homescreens as a standalone app with full touch and safe-area optimization.
+- **🛡️ Local-First & Offline Resilient:** Saves recordings and state to browser IndexedDB storage before sending to the AI gateway.
+
+---
+
+## 🏗️ Tech Stack
+
+- **Framework:** Next.js (App Router, Turbopack)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (Notion Design System: warm neutrals, subtle borders, custom palette)
+- **Storage:** Client-side IndexedDB (`idb-keyval`)
+- **Visuals:** Markmap / Mermaid / Canvas Confetti / Lucide Icons
+- **AI Backend Gateway:** OpenAI-compatible API endpoints (e.g. 9router with Gemini / Whisper / Llama)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- **Node.js** (v18+ or v20+)
+- **npm** or **pnpm**
+- An OpenAI-compatible gateway (e.g., [9router](https://github.com) or local Whisper/Ollama)
+
+### 2. Installation
+
+Clone this repository:
+```bash
+git clone https://github.com/your-username/NoteUp.git
+cd NoteUp
+```
+
+Install dependencies:
+```bash
+npm install
+```
+
+Copy the environment file:
+```bash
+cp .env.example .env
+```
+
+Edit `.env` according to your gateway setup:
+```env
+ROUTER_BASE_URL=http://127.0.0.1:20128/v1
+ROUTER_API_KEY=your_api_key_here
+ROUTER_LLM_MODEL=ag/gemini-3.8-flash-medium
+ROUTER_STT_MODEL=ag/gemini-3.8-flash-medium
+PORT=3000
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🐳 Docker Deployment
 
-## Learn More
+NoteUp is pre-configured for Docker with a lightweight multi-stage standalone build.
 
-To learn more about Next.js, take a look at the following resources:
+### Running with Docker Compose:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker compose up -d --build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The app will be accessible at `http://localhost:3000`.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Mobile Installation (PWA)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Open NoteUp in your mobile browser (Chrome / Brave / Safari).
+2. Tap the browser menu (`⋮` or Share button).
+3. Select **"Install App"** (or *"Add to Home Screen"* on iOS).
+4. Launch NoteUp directly from your home screen as a standalone application.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).

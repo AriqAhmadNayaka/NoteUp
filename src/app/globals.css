@@ -2,25 +2,103 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #37352f;
+  --sidebar-bg: #f7f6f3;
+  --sidebar-hover: rgba(55, 53, 47, 0.06);
+  --sidebar-active: rgba(55, 53, 47, 0.09);
+  --notion-border: rgba(55, 53, 47, 0.09);
+  --notion-border-strong: rgba(55, 53, 47, 0.16);
+  --notion-muted: #787774;
+  --notion-subtle: #9b9a97;
+  --notion-card: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Notion-style smooth slim scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(55, 53, 47, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 53, 47, 0.28);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Notion Pastel Colors for Tags & Badges */
+.notion-tag-gray {
+  background-color: #f1f1ef;
+  color: #5a5a58;
+  border-color: #e3e2e0;
+}
+
+.notion-tag-brown {
+  background-color: #f4eeee;
+  color: #6e4f3a;
+  border-color: #eedcd2;
+}
+
+.notion-tag-orange {
+  background-color: #faece3;
+  color: #b35c27;
+  border-color: #fad2bf;
+}
+
+.notion-tag-yellow {
+  background-color: #fbf3db;
+  color: #89632a;
+  border-color: #f4e3b5;
+}
+
+.notion-tag-green {
+  background-color: #edf3ec;
+  color: #2b6e4f;
+  border-color: #d3e5d2;
+}
+
+.notion-tag-blue {
+  background-color: #edf5fa;
+  color: #286b97;
+  border-color: #d3e5f3;
+}
+
+.notion-tag-purple {
+  background-color: #f4f0f7;
+  color: #6940a5;
+  border-color: #e2d9f3;
+}
+
+.notion-tag-pink {
+  background-color: #fbf0f4;
+  color: #963864;
+  border-color: #f6d2e1;
+}
+
+.notion-tag-red {
+  background-color: #fbebee;
+  color: #9f2d38;
+  border-color: #f8d0d5;
+}
+

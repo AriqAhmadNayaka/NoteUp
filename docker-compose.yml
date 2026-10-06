@@ -1,0 +1,18 @@
+services:
+  noteup:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: noteup
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - ROUTER_BASE_URL=${ROUTER_BASE_URL:-http://host.docker.internal:20128/v1}
+      - ROUTER_API_KEY=${ROUTER_API_KEY:-}
+      - ROUTER_LLM_MODEL=${ROUTER_LLM_MODEL:-ag/gemini-3.8-flash-medium}
+      - ROUTER_STT_MODEL=${ROUTER_STT_MODEL:-ag/gemini-3.8-flash-medium}
+    extra_hosts:
+      # Allows the container to access 9router running directly on the host machine
+      - "host.docker.internal:host-gateway"
